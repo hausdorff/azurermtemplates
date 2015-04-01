@@ -1,0 +1,7 @@
+{
+  "TemplateName": "Spin up a Mesosphere cluster",
+  "Description": "Template spins up and configures a fully-functional mesosphere cluster. Masters are spun up and configured with ZK, and then slaves are spun up after that.",
+  "ShortDescription": "Template spins up and configures a fully-functional mesosphere cluster. ",
+  "GithubUsername": "hausdorff",
+  "DateUpdated": "2015-04-01"
+}

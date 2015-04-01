@@ -1,0 +1,48 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "storageAccountName": {
+            "value": "alexmesospherestorage"
+        },
+        "adminUsername": {
+            "value": "aclemmer"
+        },
+        "numberOfInstances": {
+            "value": 3
+        },
+        "subscriptionId": {
+            "value": "eb8f201d-db4b-4f64-97eb-8e648532b858"
+        },
+        "region": {
+            "value": "West US"
+        },
+        "virtualNetworkName": {
+            "value": "myVNET"
+        },
+        "vmSize": {
+            "value": "Standard_A0"
+        },
+        "subnet1Name": {
+            "value": "Subnet-1"
+        },
+        "subnet2Name": {
+            "value": "Subnet-2"
+        },
+        "addressPrefix": {
+            "value": "10.0.0.0/16"
+        },
+        "subnet1Prefix": {
+            "value": "10.0.0.0/24"
+        },
+        "subnet2Prefix": {
+            "value": "10.0.1.0/24"
+        },
+        "adminPassword": {
+            "value": "Password87"
+        },
+        "customScriptCommandToExecute": {
+            "value": "sh privateip.sh"
+        }
+    }
+}
