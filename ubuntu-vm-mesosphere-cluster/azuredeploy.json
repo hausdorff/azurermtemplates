@@ -53,7 +53,7 @@
         },
         "customScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://gist.githubusercontent.com/hausdorff/57784d7e5c9906de69eb/raw/9f57bfc5592c6a7d1dac8b3ec901bec464c9446f/configure_master.sh"
+            "defaultValue": "https://gist.githubusercontent.com/hausdorff/57784d7e5c9906de69eb/raw/ce8141ede2a2f142b3ed7bd770b70861325e8972/configure_master.sh"
         },
         "customScriptCommandToExecute": {
             "type": "string"
