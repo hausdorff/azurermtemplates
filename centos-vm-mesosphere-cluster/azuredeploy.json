@@ -342,7 +342,7 @@
                     "fileUris": [
                         "[parameters('slaveConfigScriptFilePath')]"
                     ],
-                    "commandToExecute": "[concat(parameters('slaveConfigCommand'), ' ', copyIndex(), ' ', reference(concat('slaveNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('slaveNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('slaveNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
+                    "commandToExecute": "[concat(parameters('slaveConfigCommand'), ' ', copyIndex(), ' ', reference(concat(‘masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
                 }
             }
         }
