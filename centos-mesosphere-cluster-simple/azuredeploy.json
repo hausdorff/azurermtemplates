@@ -57,11 +57,11 @@
         },
         "masterConfigScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://gist.githubusercontent.com/hausdorff/57784d7e5c9906de69eb/raw/424da2b8e9bd4fb83b44eb89587fa4d5bbc317ce/configure_master.sh"
+            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-simple/configure_master.sh"
         },
         "slaveConfigScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://gist.githubusercontent.com/hausdorff/9bc71e167f4890638dd5/raw/361ccda86f6296c49537968cc7acf59e4ab48d2d/configure_slave.sh"
+            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-simple/configure_slave.sh"
         },
         "masterConfigCommand": {
             "type": "string"
