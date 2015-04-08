@@ -14,7 +14,7 @@
         },
         "numberOfMasterInstances": {
             "type": "int",
-            "defaultValue": 1
+            "defaultValue": 3
         },
         "numberOfSlaveInstances": {
             "type": "int",
@@ -57,11 +57,11 @@
         },
         "masterConfigScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-simple/configure_master.sh"
+            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-high-availability/configure_master.sh"
         },
         "slaveConfigScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-simple/configure_slave.sh"
+            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-high-availability/configure_slave.sh"
         },
         "masterConfigCommand": {
             "type": "string"
@@ -317,7 +317,7 @@
                     "fileUris": [
                         "[parameters('masterConfigScriptFilePath')]"
                     ],
-                    "commandToExecute": "[concat(parameters('masterConfigCommand'), ' ', copyIndex(), ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress)]"
+                    "commandToExecute": "[concat(parameters('masterConfigCommand'), ' ', copyIndex(), ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
                 }
             }
         },
@@ -341,7 +341,7 @@
                     "fileUris": [
                         "[parameters('slaveConfigScriptFilePath')]"
                     ],
-                    "commandToExecute": "[concat(parameters('slaveConfigCommand'), ' ', copyIndex(), ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress)]"
+                    "commandToExecute": "[concat(parameters('slaveConfigCommand'), ' ', copyIndex(), ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
                 }
             }
         }
