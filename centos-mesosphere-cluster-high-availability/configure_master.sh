@@ -18,8 +18,8 @@ echo $ID | tee /var/lib/zookeeper/myid
 
 echo | tee -a /etc/zookeeper/conf/zoo.cfg
 echo "server.1=${2}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
-echo "server.1=${3}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
-echo "server.1=${4}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
+echo "server.2=${3}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
+echo "server.3=${4}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
 
 echo "---                    ---"
 echo "--- Starting ZooKeeper ---"
