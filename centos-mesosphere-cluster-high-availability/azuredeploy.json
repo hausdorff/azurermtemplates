@@ -56,17 +56,19 @@
         },
         "masterConfigScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-high-availability/configure_master.sh"
+            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_templates_2/centos-mesosphere-cluster-high-availability/configure_master.sh"
         },
         "slaveConfigScriptFilePath": {
             "type": "string",
-            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_template/centos-mesosphere-cluster-high-availability/configure_slave.sh"
+            "defaultValue": "https://raw.githubusercontent.com/hausdorff/azurermtemplates/mesos_templates_2/centos-mesosphere-cluster-high-availability/configure_slave.sh"
         },
         "masterConfigCommand": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "sh configure_master.sh"
         },
         "slaveConfigCommand": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "sh configure_slave.sh"
         },
         "sshKeyData" : {
             "type" : "string"
@@ -316,7 +318,7 @@
                     "fileUris": [
                         "[parameters('masterConfigScriptFilePath')]"
                     ],
-                    "commandToExecute": "[concat(parameters('masterConfigCommand'), ' ', copyIndex(), ' ', reference(resourceId('Microsoft.Network/publicIpAddresses', concat('masterPublicIP', copyIndex()))).ipAddress, ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
+                    "commandToExecute": "[concat(parameters('masterConfigCommand'), ' ', copyIndex(), ' ', reference(concat('Microsoft.Network/publicIPAddresses/', 'masterPublicIP', copyIndex()), providers('Microsoft.Network', 'publicIPAddresses').apiVersions[0]).ipAddress, ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
                 }
             }
         },
