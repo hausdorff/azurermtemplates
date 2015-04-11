@@ -16,10 +16,12 @@ ID=1
 ID=`expr "$1" + "$ID"`
 echo $ID | tee /var/lib/zookeeper/myid
 
+echo "${2}" | tee /etc/mesos-master/hostname
+
 echo | tee -a /etc/zookeeper/conf/zoo.cfg
-echo "server.1=${2}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
-echo "server.2=${3}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
-echo "server.3=${4}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
+echo "server.1=${3}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
+echo "server.2=${4}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
+echo "server.3=${5}:2888:3888" | tee -a /etc/zookeeper/conf/zoo.cfg
 
 echo "---                    ---"
 echo "--- Starting ZooKeeper ---"
@@ -29,7 +31,7 @@ systemctl start zookeeper
 echo "---                                ---"
 echo "--- Configuring Mesos and Marathon ---"
 echo "---                                ---"
-echo "zk://${2}:2181,${3}:2181,${4}:2181/mesos" | tee /etc/mesos/zk
+echo "zk://${3}:2181,${4}:2181,${5}:2181/mesos" | tee /etc/mesos/zk
 echo 2 | tee /etc/mesos-master/quorum
 
 echo "---                                  ---"

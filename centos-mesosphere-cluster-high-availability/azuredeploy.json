@@ -316,7 +316,7 @@
                     "fileUris": [
                         "[parameters('masterConfigScriptFilePath')]"
                     ],
-                    "commandToExecute": "[concat(parameters('masterConfigCommand'), ' ', copyIndex(), ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
+                    "commandToExecute": "[concat(parameters('masterConfigCommand'), ' ', copyIndex(), ' ', reference(resourceId('Microsoft.Network/publicIpAddresses', concat('masterPublicIP', copyIndex()))).ipAddress, ' ', reference(concat('masterNic', 0)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 1)).ipConfigurations[0].properties.privateIPAddress, ' ', reference(concat('masterNic', 2)).ipConfigurations[0].properties.privateIPAddress)]"
                 }
             }
         },
