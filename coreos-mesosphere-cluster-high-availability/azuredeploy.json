@@ -66,10 +66,13 @@
         },
         "sshKeyData" : {
             "type" : "string"
+        },
+        "customData": {
+            "type": "string"
         }
     },
     "variables": {
-        "vmSourceImageName": "5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20150128",
+        "vmSourceImageName": "2b171e93f07c4903bcad35bda10acf22__CoreOS-Stable-607.0.0",
         "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
         "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',parameters('subnet1Name'))]",
         "sourceImageName": "[concat('/',subscription().subscriptionId,'/services/images/',variables('vmSourceImageName'))]",
@@ -216,6 +219,7 @@
                 "osProfile": {
                     "computername": "[concat('mastervm', copyIndex())]",
                     "adminUsername": "[parameters('adminUsername')]",
+                    "customData": "[parameters('customData')]",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": "true",
                         "ssh": {
@@ -263,6 +267,7 @@
                 "osProfile": {
                     "computername": "[concat('slavevm', copyIndex())]",
                     "adminUsername": "[parameters('adminUsername')]",
+                    "customData": "[parameters('customData')]",
                     "linuxConfiguration" : {
                         "disablePasswordAuthentication": "true",
                         "ssh" : {

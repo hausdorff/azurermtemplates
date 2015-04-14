@@ -26,12 +26,6 @@
         "subnet2Prefix": {
             "value": "10.0.1.0/24"
         },
-        "masterConfigCommand": {
-            "value": "sh configure_master.sh"
-        },
-        "slaveConfigCommand": {
-            "value": "sh configure_slave.sh"
-        },
         "numberOfSlaveInstances": {
             "value": 1
         }
