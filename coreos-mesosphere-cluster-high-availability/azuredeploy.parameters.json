@@ -28,6 +28,12 @@
         },
         "numberOfSlaveInstances": {
             "value": 1
+        },
+        "adminUsername": {
+            "value": "aclemmer"
+        },
+        "storageAccountName": {
+            "value": "coreosmesosstore7"
         }
     }
 }
